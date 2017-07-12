@@ -24,6 +24,12 @@ features_train=features_train[:len(features_train)/10]
 labels_train=labels_train[:len(labels_train)/10]
 
 
+
+
+
+#########################################################
+### your code goes here ###
+
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import accuracy_score
 import numpy as np
@@ -38,12 +44,6 @@ print(np.shape(pred))
 print(np.shape(labels_test))
 print(accuracy_score(labels_test,pred))
 print('a')
-
-
-#########################################################
-### your code goes here ###
-
-
 #########################################################
 
 
