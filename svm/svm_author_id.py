@@ -35,12 +35,12 @@ train=filt.fit(features_train,labels_train)
 print train
 print("training time: ",round(time()-t0,3),"s")
 
-#t1=time()
-#pred=train.predict(features_test)
+t1=time()
+pred=train.predict(features_test)
 #print(train.predict(features_test[10]))
 #print(train.predict(features_test[26]))
 #print(train.predict(features_test[50]))
-#print("prediction time: ",round(time()-t1,3),"s")
+print("prediction time: ",round(time()-t1,3),"s")
 chris=[]
 sara=[]
 for i in range(len(features_test)):

@@ -20,6 +20,9 @@ from email_preprocess import preprocess
 ### and testing datasets, respectively
 ### labels_train and labels_test are the corresponding item labels
 features_train, features_test, labels_train, labels_test = preprocess()
+features_train=features_train[:len(features_train)/10]
+labels_train=labels_train[:len(labels_train)/10]
+
 
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import accuracy_score
