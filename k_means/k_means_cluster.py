@@ -46,6 +46,8 @@ data_dict.pop("TOTAL", 0)
 
 
 
+
+
 ### Find max and min value of 'exercised_stock_options' in data dictionary.
 temp=[]
 # The parameter you want to find
@@ -64,17 +66,61 @@ print('min_va ',min(temp))
 
 
 
+
+# Last question whether scaling needed while comparing salary and from_messages
+msg=[]
+# The parameter you want to find
+#param='from messages'
+param='from_messages'
+for key,val in data_dict.items():
+	if data_dict[key][param]=='NaN':
+		pass
+	else:
+		msg.append(data_dict[key][param])
+print('max_val_from_msg',max(msg))
+#14368
+print('min_val_from_msg',min(msg))
+#12
+# As we can see the difference is too large the from message will only become a bias and there will no importance given to them.
+# so it is critical to scale while looking in these two features.
+
+
+
+
+
+
 ### the input features we want to use 
 ### can be any key in the person-level dictionary (salary, director_fees, etc.) 
 feature_1 = "salary"
 feature_2 = "exercised_stock_options"
 poi  = "poi"
 #for 2 features
-#features_list = [poi, feature_1, feature_2]
+features_list = [poi, feature_1, feature_2]
 #for 3 features
-features_list = [poi, feature_1, feature_2,'total_payments']  #add 'total_payments' for 3rd parameter
+#features_list = [poi, feature_1, feature_2,'total_payments']  #add 'total_payments' for 3rd parameter
 data = featureFormat(data_dict, features_list )
 poi,finance_features = targetFeatureSplit( data )
+salary=(data[:,1])
+exercised_stock_options=(data[:,2])
+
+
+
+
+
+
+## MinMaxScaler function and tranform values for them for specific values.
+from sklearn.preprocessing import MinMaxScaler
+scale=MinMaxScaler()
+sal_fit=scale.fit_transform(salary)
+print(scale.transform([200000.]))
+# 0.179976
+stk_fit=scale.fit_transform(exercised_stock_options)
+print(scale.transform([1000000.]))
+# 0.02911 
+#print(data)
+
+
+
 
 
 ### in the "clustering with 3 features" part of the mini-project,
@@ -86,15 +132,21 @@ poi,finance_features = targetFeatureSplit( data )
 #for f1, f2  in finance_features:
 #for 3 features uncomment below line
 # added f3 as 3rd parameter
-for f1, f2,f3  in finance_features: 
+for f1, f2  in finance_features: 
     plt.scatter( f1, f2 )
 plt.show()
+
+
+
+
 
 ### cluster here; create predictions of the cluster labels
 ### for the data and store them to a list called pred
 from sklearn.cluster import KMeans
 filt=KMeans(n_clusters=2, random_state=0).fit(finance_features)
 pred=filt.predict(finance_features)
+# pred will give the clustered data.
+
 
 
 
