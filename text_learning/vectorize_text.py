@@ -56,6 +56,15 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
             temp=temp.replace('shackleton','')
             temp=temp.replace('chris','')
             temp=temp.replace('germani','')
+            # for class 12 Feature selection we are removing the
+            # most significant feature which might be outlier
+            # removing 'sshacklensf'
+            temp=temp.replace( 'sshacklensf','')
+
+            # now we are also removing second most significant feature
+            # 'cgermannsf'
+            temp= temp.replace('cgermannsf','')
+
             
             word_data.append(temp)
             if name=="sara":
