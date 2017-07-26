@@ -48,6 +48,7 @@ for i in range(len(pred_n)):
         pred_n[i]=0
 print(len(temp))
 # The answer is 4.
+print(len(pred_n))
 #Total no. of people in test set is 29.
 
 #So now the accuracy of the set if we set everything to 0 in out prediction will be,
