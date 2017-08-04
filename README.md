@@ -6,7 +6,7 @@ You can find every project in this repository. I am highly advice you to use thi
 
 I've also attached Final Project and my write-up. I hope this will help.
 
-Kishan Patel
-Graduate Student Robotics,
-Santa Clara University,CA.
+Kishan Patel    
+Graduate Student Robotics,    
+Santa Clara University,CA.    
 www.kishanjpatel.com
